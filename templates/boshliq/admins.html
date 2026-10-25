@@ -1,0 +1,67 @@
+{% extends "boshliq/home.html" %}
+{% load static %}
+
+{% block cont %}
+
+<div class="row g-3 mb-4">
+  <div class="col-12 col-sm-6">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">Adminlar</h5>
+        <h2 class="display-5">{{ admin_soni }}</h2>
+        <p class="mb-0">admin</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-sm-6">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">Sotuvchilar</h5>
+        <h2 class="display-5">{{ sotuvchi_soni }}</h2>
+        <p class="mb-0">sotuvchi</p>
+      </div>
+    </div>
+  </div>
+</div>
+       <div class="card">
+                <h5 class="card-header">Hodimlar jadvali</h5>
+                <div class="table-responsive text-nowrap">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Nomi:</th>
+                        <th>Telefon raqami:</th>
+                        <th>Profil:</th>
+                        <th>reiting:</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                      {% for user in foydalanuvchilar %}
+                          <tr>
+                        <td>
+                         <span>{{ user.user.username }}</span>
+                        </td>
+                        <td>{{ user.phonenumber }}</td>
+                         <td>
+                         <span>{{ user.role }}</span>
+                        </td>
+                        <td>
+                         <span>{{ user.raiting }}</span>
+                        </td>
+                        <td>
+                          
+                          <a href="{% url 'edit_user' user.pk %}" class="btn btn-info">Tahrirlash</a>
+                          <a href="{% url 'delete_user' user.pk %}" class="btn btn-danger">O'chirish</a>
+                        </td>
+                        </td>
+                     
+                      </tr>
+                      {% endfor %}
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+
+{% endblock cont %}

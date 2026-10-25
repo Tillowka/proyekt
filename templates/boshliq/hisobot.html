@@ -1,0 +1,290 @@
+{% extends "boshliq/home.html" %}
+{% block cont %}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+
+    <!-- Заголовок -->
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <div>
+            <h4 class="fw-bold mb-1">Dashboard</h4>
+            <p class="mb-0 text-muted">
+                Magazindi bugundi hisoboti
+            </p>
+        </div>
+
+        <span class="badge bg-label-primary">
+            bugun
+        </span>
+    </div>
+
+
+    <!-- Основная статистика -->
+    <div class="row g-4 mb-4">
+
+        <!-- Продажи -->
+        <div class="col-sm-6 col-xl-4">
+            <div class="card h-100">
+                <div class="card-body">
+
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <div class="avatar">
+                            <span class="avatar-initial rounded bg-label-primary">
+                                <i class="icon-base bx bx-shopping-bag icon-lg"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <span class="fw-medium d-block mb-1">
+                        Bugungi sotuvlar 
+                    </span>
+
+                    <h4 class="card-title mb-0">
+                        {{ prodazhi_segodnya }}
+                    </h4>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Выручка -->
+        <div class="col-sm-6 col-xl-4">
+            <div class="card h-100">
+                <div class="card-body">
+
+                    <div class="avatar mb-3">
+                        <span class="avatar-initial rounded bg-label-success">
+                            <i class="icon-base bx bx-wallet icon-lg"></i>
+                        </span>
+                    </div>
+
+                    <span class="fw-medium d-block mb-1">
+                        Bugungi foyda
+                    </span>
+
+                    <h4 class="card-title mb-0">
+                        {{ viruchka_segodnya }} сум
+                    </h4>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Прибыль -->
+        <div class="col-sm-6 col-xl-4">
+            <div class="card h-100">
+                <div class="card-body">
+
+                    <div class="avatar mb-3">
+                        <span class="avatar-initial rounded bg-label-warning">
+                            <i class="icon-base bx bx-line-chart icon-lg"></i>
+                        </span>
+                    </div>
+
+                    <span class="fw-medium d-block mb-1">
+                        Bugungi daromad
+                    </span>
+
+                    <h4 class="card-title mb-0">
+                        {{ pribyl_segodnya }} сум
+                    </h4>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Вторая строка -->
+    <div class="row g-4 mb-4">
+
+        <!-- Статистика магазина -->
+        <div class="col-lg-8">
+
+            <div class="card h-100">
+
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        Magazinni statistikasi
+                    </h5>
+                </div>
+
+                <div class="card-body">
+
+                    <div class="row g-4">
+
+                        <div class="col-6 col-md-3">
+                            <div class="text-center">
+                                <h4 class="mb-1">
+                                    {{ admin_soni }}
+                                </h4>
+                                <small class="text-muted">
+                                    Adminlar
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-3">
+                            <div class="text-center">
+                                <h4 class="mb-1">
+                                    {{ sotuvchi_soni }}
+                                </h4>
+                                <small class="text-muted">
+                                    Sotuvchilar
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-3">
+                            <div class="text-center">
+                                <h4 class="mb-1">
+                                    {{ product_soni }}
+                                </h4>
+                                <small class="text-muted">
+                                    Tovarlar
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-3">
+                            <div class="text-center">
+                                <h4 class="mb-1">
+                                    {{ klient_soni }}
+                                </h4>
+                                <small class="text-muted">
+                                    Klientlar
+                                </small>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Лучший продавец -->
+        <div class="col-lg-4">
+
+            <div class="card h-100">
+
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        Eng yaxshi sotuvchi
+                    </h5>
+                </div>
+
+                <div class="card-body">
+
+                    <div class="d-flex align-items-center">
+
+                        <div class="avatar me-3">
+                            <span class="avatar-initial rounded-circle bg-label-primary">
+                                <i class="icon-base bx bx-user"></i>
+                            </span>
+                        </div>
+
+                        <div>
+                            <h6 class="mb-1">
+                                {{ luchshiy_prodavec }}
+                            </h6>
+
+                            <small class="text-muted">
+                                {{ luchshiy_prodavec_prodazhi }}
+                                sotuv
+                            </small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Последние продажи -->
+    <div class="card">
+
+        <div class="card-header d-flex justify-content-between align-items-center">
+
+            <h5 class="card-title mb-0">
+                Ohirgi sotuvlar
+            </h5>
+
+            <a href="#" class="btn btn-sm btn-outline-primary">
+                Hamma sotuvlar
+            </a>
+
+        </div>
+
+        <div class="table-responsive">
+
+            <table class="table table-hover">
+
+                <thead>
+                    <tr>
+                        <th>Tovar</th>
+                        <th>Sotuvchi</th>
+                        <th>Soni</th>
+                        <th>Summa</th>
+                        <th>Vaqti</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for sale in poslednie_prodazhi %}
+
+                    <tr>
+
+                        <td>
+                            {{ sale.product.name }}
+                        </td>
+
+                        <td>
+                            {{ sale.seller.user.username }}
+                        </td>
+
+                        <td>
+                            {{ sale.quantity }}
+                        </td>
+
+                        <td>
+                            {{ sale.total }} сум
+                        </td>
+
+                        <td>
+                            {{ sale.created_at|date:"H:i" }}
+                        </td>
+
+                    </tr>
+
+                    {% empty %}
+
+                    <tr>
+                        <td colspan="5" class="text-center text-muted py-4">
+                            Sotuvlar hali yo'q
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock cont %}

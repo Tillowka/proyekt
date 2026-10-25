@@ -1,0 +1,5 @@
+Django
+gunicorn
+whitenoise
+Pillow
+djangorestframework
