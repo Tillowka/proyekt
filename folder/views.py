@@ -233,20 +233,19 @@ def product_requests(request):
         }
     )
 def qabul_product(request, pk):
+  if not request.user.is_authenticated:
+    return redirect('login')
+  if not getattr(request.user.userprofile, 'role', None) in ['admin', 'boshliq']:
+    return redirect('admin_page')
+    
     product = get_object_or_404(ProductRequest, pk=pk)
-
-    system = product.system_data
-    system.status = "approved"
-    system.save()
-
-    admin_data, created = ProductRequestAdmin.objects.get_or_create(
-        product_request=product
-    )
-
+    product.system_data.status = "approved"
+    product.system_data.save()
+    
+    admin_data, _ = ProductRequestAdmin.objects.get_or_create(product_request=product)
     admin_data.tekshirgan = request.user
     admin_data.tekshirilganvaqt = timezone.now()
     admin_data.save()
-
     return redirect('product_requests')
 
 def rad_product(request, pk):
