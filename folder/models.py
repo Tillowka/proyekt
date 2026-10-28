@@ -40,16 +40,15 @@ class ProductRequestSystem(models.Model):
     yangilanganvaqt = models.DateTimeField(auto_now=True)
     sotuvchi = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='sotuvchi_user')
         
-    status = models.CharField(
-        
-    max_length=20,
-    choices=[
-        ('pending', 'Tekshiruvda'),
-        ('approved', 'Qabul qilindi'),
-        ('rejected', 'Rad etildi'),
-        ('needs_fix', 'Tuzatish kerak'),
-    ],
-    default='pending'
+   status = models.CharField(
+max_length=20,
+choices=[
+('pending', 'Tekshiruvda'),
+('approved', 'Qabul qilindi'),
+('rejected', 'Rad etildi'),
+('needs_fix', 'Tuzatish kerak'),
+],
+default='pending'
 )
     
 class UserProfile(models.Model):
