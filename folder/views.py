@@ -214,7 +214,7 @@ def product_requests(request):
 
     done = ProductRequest.objects.filter(
         system_data__status__in=[
-            'need_fix',
+            'needs_fix',
             'approved',
             'rejected'
         ]
@@ -275,7 +275,7 @@ def tuzatish_product(request, pk):
     product = get_object_or_404(ProductRequest, pk=pk)
 
     system = product.system_data
-    system.status = "need_fix"
+    system.status = "needs_fix"
     system.save()
 
     admin_comment = request.POST.get('admin_comment', '')
