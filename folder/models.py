@@ -41,15 +41,15 @@ class ProductRequestSystem(models.Model):
     sotuvchi = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='sotuvchi_user')
         
    status = models.CharField(
-max_length=20,
-choices=[
-('pending', 'Tekshiruvda'),
-('approved', 'Qabul qilindi'),
-('rejected', 'Rad etildi'),
-('needs_fix', 'Tuzatish kerak'),
-],
-default='pending'
-)
+    max_length=20,
+    choices=[
+    ('pending', 'Tekshiruvda'),
+    ('approved', 'Qabul qilindi'),
+    ('rejected', 'Rad etildi'),
+    ('needs_fix', 'Tuzatish kerak'),
+    ],
+    default='pending'
+    )
     
 class UserProfile(models.Model):
     USER_ROLE = [
