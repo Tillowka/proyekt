@@ -34,22 +34,34 @@ class ProductRequestAdmin(models.Model):
     
     tekshirilganvaqt = models.DateTimeField(null=True, blank=True)
 
+
 class ProductRequestSystem(models.Model):
-    product_request = models.OneToOneField(ProductRequest, on_delete=models.CASCADE, related_name='system_data')
+    product_request = models.OneToOneField(
+        ProductRequest,
+        on_delete=models.CASCADE,
+        related_name='system_data'
+    )
     yasalganvaqt = models.DateTimeField(auto_now_add=True)
     yangilanganvaqt = models.DateTimeField(auto_now=True)
-    sotuvchi = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='sotuvchi_user')
-        
-   status = models.CharField(
-    max_length=20,
-    choices=[
-    ('pending', 'Tekshiruvda'),
-    ('approved', 'Qabul qilindi'),
-    ('rejected', 'Rad etildi'),
-    ('needs_fix', 'Tuzatish kerak'),
-    ],
-    default='pending'
+    sotuvchi = models.ForeignKey(
+        User,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='sotuvchi_user'
     )
+
+    status = models.CharField(
+        max_length=20,
+        choices=[
+            ('pending', 'Tekshiruvda'),
+            ('approved', 'Qabul qilindi'),
+            ('rejected', 'Rad etildi'),
+            ('needs_fix', 'Tuzatish kerak'),
+        ],
+        default='pending'
+    )
+
     
 class UserProfile(models.Model):
     USER_ROLE = [
