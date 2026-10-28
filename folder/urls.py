@@ -19,6 +19,6 @@ urlpatterns =[
     path('sotuvchi/', views.seller_page, name='sotuvchi_page'),
     path('admin_tekshiruv/', views.product_requests, name='product_requests'),
     path('qabul_product/<int:pk>/', views.qabul_product, name='qabul_product'),
-    path('rad_product/<int:pk>/', views.qabul_product, name='rad_product'),
+    path('rad_product/<int:pk>/', views.rad_product, name='rad_product'),
     path('tuzatish/<int:pk>/',views.tuzatish_product,name='tuzatish_product')
 ]
