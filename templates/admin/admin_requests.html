@@ -293,7 +293,7 @@
     {% endif %}
     
     <a href="{% url 'qabul_product' product.id %}"><button>Qabul qilish</button></a>
-    <a href="#"><button>Rad etish</button></a>
+    <a href="{% url 'rad_product' product.id %}"><button>Rad etish</button></a>
     <button type="button" onclick="showFixForm({{ product.id }})">
     Tuzatish
  </button>
